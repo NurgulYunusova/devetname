@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="az">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dəvətnamə Hazırla</title>
+<meta name="description" content="Toy, nişan, xına gecəsi və ad günü üçün animasiyalı dəvətnamə hazırlayın, PNG, video və PDF kimi yükləyin.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Bütün fontlar Azərbaycan hərfləri (Ə ə Ğ ğ I ı İ i Ö ö Ü ü Ç ç Ş ş) üçün yoxlanılıb -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Alex+Brush&family=Pinyon+Script&family=Allura&family=Dancing+Script:wght@500;700&family=Imperial+Script&family=Corinthia:wght@400;700&family=Petit+Formal+Script&family=Ephesis&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Lora:ital,wght@0,400;0,600;1,400&family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Fraunces:ital,wght@0,400;0,600;1,400&family=Noto+Serif+Display:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&family=Josefin+Sans:wght@300;400;600&family=Raleway:wght@300;400;600&family=Lexend:wght@300;400;500&family=Lobster&family=Kaushan+Script&family=Pacifico&family=Caveat:wght@500;700&family=Comfortaa:wght@400;600;700&family=Baloo+2:wght@400;600;800&family=Nunito:ital,wght@0,400;0,600;0,800;1,400&display=swap">
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-kind="toy">
+<header>
+  <div class="brand"><em id="brandEm">Toy</em> Dəvətnaməsi</div>
+  <div class="seg kindseg" data-seg="kind"><button data-v="toy">Toy · Nişan</button><button data-v="ad">Ad günü</button></div>
+  <small>Ayarları solda dəyişin, sağda canlı baxın, bəyəndikdə yükləyin</small>
+</header>
+<div class="app">
+<aside id="panel">
+  <details open>
+    <summary>Şablon</summary>
+    <div class="sec">
+      <label data-kind="ad">Kimin üçün
+        <div class="seg" data-seg="gender"><button data-v="oglan">Oğlan</button><button data-v="qiz">Qız</button></div>
+      </label>
+      <div id="tpls" class="tplwrap"></div>
+      <p class="hint">Şablon seçəndə onun fontları və rəngi də gəlir. Sonra istədiyinizi dəyişə bilərsiniz.</p>
+    </div>
+  </details>
+
+  <details open>
+    <summary>Tədbir və adlar</summary>
+    <div class="sec" data-kind="ad">
+      <label>Kim dəvət edir
+        <div class="seg" data-seg="side">
+          <button data-v="ozu">Özüm</button><button data-v="valideyn">Uşaq üçün</button><button data-v="aile">Yubiley</button>
+        </div>
+      </label>
+      <div class="row">
+        <label>Ad günü olanın adı<input type="text" data-k="person" maxlength="40"></label>
+        <label>Neçə yaş<input type="text" data-k="age" inputmode="numeric" maxlength="3" placeholder="Boş qala bilər"></label>
+      </div>
+      <label>Qonağın adı (istəyə görə)<input type="text" data-k="guest" placeholder="məs. Nərmin xala" maxlength="60"></label>
+      <p class="hint">Hər qonaq üçün adı dəyişib ayrıca yükləyə bilərsiniz.</p>
+    </div>
+    <div class="sec" data-kind="toy">
+      <label>Tədbir növü
+        <div class="seg" data-seg="event">
+          <button data-v="toy">Toy</button><button data-v="nisan">Nişan</button><button data-v="xina">Xına gecəsi</button>
+        </div>
+      </label>
+      <label>Dəvət edən tərəf
+        <div class="seg" data-seg="side">
+          <button data-v="oglan">Oğlan evi</button><button data-v="qiz">Qız evi</button><button data-v="cut">Bəy və gəlin</button>
+        </div>
+      </label>
+      <div class="row">
+        <label>Bəyin adı<input type="text" data-k="groom" maxlength="40"></label>
+        <label>Gəlinin adı<input type="text" data-k="bride" maxlength="40"></label>
+      </div>
+      <div class="row">
+        <label>Adlar arasında
+          <select data-k="connector">
+            <option value="&amp;">&amp;</option><option value="və">və</option><option value="">heç nə</option>
+          </select>
+        </label>
+        <label>Sıra
+          <select data-k="order">
+            <option value="groom">Əvvəl bəy</option><option value="bride">Əvvəl gəlin</option>
+          </select>
+        </label>
+      </div>
+      <label>Qonağın adı (istəyə görə)<input type="text" data-k="guest" placeholder="məs. Rəşad müəllim və xanımı" maxlength="60"></label>
+      <p class="hint">Hər qonaq üçün adı dəyişib ayrıca yükləyə bilərsiniz.</p>
+    </div>
+  </details>
+
+  <details open>
+    <summary>Mətnlər</summary>
+    <div class="sec">
+      <label>Müraciət
+        <select data-preset="greeting"></select>
+        <textarea data-k="greeting" rows="2"></textarea>
+      </label>
+      <label>Dəvət cümləsi
+        <select data-preset="invite"></select>
+        <textarea data-k="invite" rows="4"></textarea>
+      </label>
+      <label>Başlıq<input type="text" data-k="title" maxlength="40"></label>
+      <label>Əlavə qeyd
+        <select data-preset="note"></select>
+        <textarea data-k="note" rows="2" placeholder="Boş qala bilər"></textarea>
+      </label>
+      <div class="row">
+        <label>Son söz
+          <select data-preset="closing"></select>
+          <input type="text" data-k="closing" maxlength="60">
+        </label>
+        <label>İmza<input type="text" data-k="family" maxlength="60" style="margin-top:auto"></label>
+      </div>
+      <p class="hint" data-kind="toy">Hazır cümlə seçin və ya öz sözlərinizi yazın. Mətndə {bəy}, {gəlin}, {qonaq} yazsanız, adlar özü yerinə düşür.</p>
+      <p class="hint" data-kind="ad">Hazır cümlə seçin və ya öz sözlərinizi yazın. Mətndə {ad} və {qonaq} yazsanız, adlar özü yerinə düşür.</p>
+    </div>
+  </details>
+
+  <details open>
+    <summary>Tarix və məkan</summary>
+    <div class="sec">
+      <div class="row">
+        <label>Tarix<input type="date" data-k="date"></label>
+        <label>Saat<input type="time" data-k="time"></label>
+      </div>
+      <label>Məkan<input type="text" data-k="venue" maxlength="70"></label>
+      <label>Ünvan<input type="text" data-k="address" maxlength="90"></label>
+    </div>
+  </details>
+
+  <details open>
+    <summary>Görünüş</summary>
+    <div class="sec">
+      <label>Adların fontu</label>
+      <div class="fonts" id="nameFonts"></div>
+      <label>Mətnin fontu</label>
+      <div class="fonts" id="textFonts"></div>
+      <label>Bəzək rəngi</label>
+      <div class="sw" id="swatches"></div>
+      <label>Ölçü
+        <div class="seg" data-seg="size">
+          <button data-v="story">Telefon 9:16</button><button data-v="card">Kart A5</button>
+        </div>
+      </label>
+      <label>Açılış effekti
+        <div class="seg" data-seg="intro">
+          <button data-v="saray">Saray qapısı</button><button data-v="zerf">Zərf</button><button data-v="perde">Pərdə</button><button data-v="none">Yoxdur</button>
+        </div>
+      </label>
+      <label class="check"><input type="checkbox" data-k="particles"> Hərəkətli bəzəklər (ləçək, konfetti, ulduz, parıltı)</label>
+      <button class="link" id="reset">Hamısını sıfırla</button>
+    </div>
+  </details>
+</aside>
+
+<main>
+  <div class="stage"><canvas id="view"></canvas></div>
+  <div class="prog" id="prog"><i></i></div>
+  <div class="bar">
+    <button class="btn main" id="play">▶ Animasiyaya bax</button>
+    <button class="btn" id="dlPng">PNG yüklə</button>
+    <button class="btn" id="dlVid">Video yüklə</button>
+    <button class="btn" id="dlPdf">PDF yüklə</button>
+    <button class="btn" id="share" hidden>Paylaş</button>
+  </div>
+  <div class="status" id="status"></div>
+</main>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/ornaments.js"></script>
+<script src="js/particles.js"></script>
+<script src="js/templates/core.js"></script>
+<script src="js/templates/toy-esas.js"></script>
+<script src="js/templates/ad-esas.js"></script>
+<script src="js/templates/ad-oglan-qiz.js"></script>
+<script src="js/templates/toy-kolleksiya.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/render.js"></script>
+<script src="js/intros.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
